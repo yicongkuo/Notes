@@ -1,0 +1,15 @@
+{
+  "name": "GIS Enterprise Reporter",
+  "short_name": "GIS Enterprise Reporter",
+  "start_url": "/Notes/GIS-Enterprise-Reporter/",
+  "scope": "/Notes/GIS-Enterprise-Reporter/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/Notes/GIS-Enterprise-Reporter/favicon.svg",
+      "sizes": "512x512"
+    }
+  ]
+}

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Running GIS Enterprise Reporter, Tips &amp; Tricks#The GIS Enterprise Reporter user interface is intended to have few options in the hopes that it is relatively straight-forward to execute.
+In principle, you give it a Portal for ArcGIS &ldquo;Target&rdquo;, with an administrative credential for that Portal, tick some checkboxes, click &ldquo;Execute&rdquo;, and wait for it to complete.
+There are some things that benefit from explanation. This article will offer information on the following topics:">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://yicongkuo.github.io/Notes/GIS-Enterprise-Reporter/docs/02/">
+  <meta property="og:site_name" content="GIS Enterprise Reporter">
+  <meta property="og:title" content="Running GIS Enterprise Reporter, Tips &amp; Tricks">
+  <meta property="og:description" content="Running GIS Enterprise Reporter, Tips &amp; Tricks#The GIS Enterprise Reporter user interface is intended to have few options in the hopes that it is relatively straight-forward to execute.
+In principle, you give it a Portal for ArcGIS “Target”, with an administrative credential for that Portal, tick some checkboxes, click “Execute”, and wait for it to complete.
+There are some things that benefit from explanation. This article will offer information on the following topics:">
+  <meta property="og:locale" content="zh_tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>Running GIS Enterprise Reporter, Tips &amp; Tricks | GIS Enterprise Reporter</title>
+<link rel="manifest" href="/Notes/GIS-Enterprise-Reporter/manifest.json">
+<link rel="icon" href="/Notes/GIS-Enterprise-Reporter/favicon.png" >
+<link rel="canonical" href="https://yicongkuo.github.io/Notes/GIS-Enterprise-Reporter/docs/02/">
+<link rel="stylesheet" href="/Notes/GIS-Enterprise-Reporter/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css" integrity="sha256-MJt&#43;0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin="anonymous">
+  <script defer src="/Notes/GIS-Enterprise-Reporter/fuse.min.js"></script>
+  <script defer src="/Notes/GIS-Enterprise-Reporter/en.search.min.bbeae7cd442d5e031c36cd55017eda66a0d66202eaea923e4c1717dc65200e86.js" integrity="sha256-u&#43;rnzUQtXgMcNs1VAX7aZqDWYgLq6pI&#43;TBcX3GUgDoY=" crossorigin="anonymous"></script>
+
+  <script defer src="/Notes/GIS-Enterprise-Reporter/sw.min.5bf32e07a1d773bf9b278a7cda0dee5d889b495f99897da88b5d954d3a75ab19.js" integrity="sha256-W/MuB6HXc7&#43;bJ4p82g3uXYibSV&#43;ZiX2oi12VTTp1qxk=" crossorigin="anonymous"></script>
+
+  
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/Notes/GIS-Enterprise-Reporter/"><span>GIS Enterprise Reporter</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/Notes/GIS-Enterprise-Reporter/docs/01/" class="">Introducing the GIS Enterprise Reporter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/Notes/GIS-Enterprise-Reporter/docs/02/" class="active">Running GIS Enterprise Reporter, Tips &amp; Tricks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/Notes/GIS-Enterprise-Reporter/docs/03/" class="">Making the Most of Services Outputs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Notes/GIS-Enterprise-Reporter/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Running GIS Enterprise Reporter, Tips &amp; Tricks</strong>
+
+  <label for="toc-control">
+    
+    <img src="/Notes/GIS-Enterprise-Reporter/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#where-should-this-application-be-run">Where Should This Application Be Run?</a></li>
+    <li><a href="#how-should-this-application-be-run">How Should this Application Be Run?</a></li>
+    <li><a href="#what-is-the-right-value-for-target">What Is the Right Value for &ldquo;Target&rdquo;?</a></li>
+    <li><a href="#common-problems-and-solutions">Common Problems and Solutions</a></li>
+    <li><a href="#what-are-the-checkbox-options">What Are the Checkbox Options?</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="running-gis-enterprise-reporter-tips--tricks">
+  Running GIS Enterprise Reporter, Tips &amp; Tricks
+  <a class="anchor" href="#running-gis-enterprise-reporter-tips--tricks">#</a>
+</h1>
+<p>The GIS Enterprise Reporter user interface is intended to have few options in the hopes that it is relatively straight-forward to execute.</p>
+<p>In principle, you give it a Portal for ArcGIS &ldquo;Target&rdquo;, with an administrative credential for that Portal, tick some checkboxes, click &ldquo;Execute&rdquo;, and wait for it to complete.</p>
+<p>
+  <img src="images/image.png" alt="alt text" /></p>
+<p>There are some things that benefit from explanation.  This article will offer information on the following topics:</p>
+<ol>
+<li>Where should I run this application?</li>
+<li>How should I run this application?</li>
+<li>What value should I put in the &ldquo;Target&rdquo;?</li>
+<li>What are some common problems (and solutions)?</li>
+<li>What do the options (checkboxes) mean?</li>
+</ol>
+<h2 id="where-should-this-application-be-run">
+  Where Should This Application Be Run?
+  <a class="anchor" href="#where-should-this-application-be-run">#</a>
+</h2>
+<p>GIS Enterprise Reporter can, in principle, be run from anywhere that it can communicate to your Portal for ArcGIS.</p>
+<p>However, there are better and worse locations.  The application works by asking Portal about itself and its federated ArcGIS Servers.  This means that Reporter wants to communicate with the federated Servers in the same way that Portal does.  Various aspects of your configuration and network rules may mean that communicating from your personal computer with Server cannot happen through the same means as Portal.</p>
+<p>How would you know?  Not easily.  So, how could you protect yourself against this possibility?  The easiest way to do that is to run the application from within your server network.  For example, you could run it on the machine on which Portal runs.</p>
+<h2 id="how-should-this-application-be-run">
+  How Should this Application Be Run?
+  <a class="anchor" href="#how-should-this-application-be-run">#</a>
+</h2>
+<p>It is not necessary to run Reporter as a local machine administrator.  However, doing so will usually allow it to gather more information for you.  And, it may help you to overcome some potential execution challenges.</p>
+<p>If you wish to run the application as a local machine administrator (assuming you are a member of that local machine Administrators group), right click on the enterprise_reporter.exe executable and select &ldquo;Run as administrator&rdquo; from the context menu.</p>
+<p>
+  <img src="images/image-3.png" alt="alt text" /></p>
+<p>You may or may not receive a message from your operating system or security software that discourages you from running this application.</p>
+<p>This application is digitally signed by Esri with a chain of authority from a public Certificate Authority.  So, it is unlikely that the message will mention certificate trust.  But, if it does, you may wish to explore importing the trust chain into your trusted repository.  To initiate the &ldquo;installation&rdquo; workflow for the certificate, follow the steps show in the screen capture below :</p>
+<p>
+  <img src="images/image-2.png" alt="alt text" /></p>
+<p>Selecting &ldquo;Current User&rdquo; and &ldquo;Automatically select the certificate store based on the type of certificate&rdquo; are the appropriate options on the &ldquo;Install Certificate&rdquo; wizard panels.  This may relieve you of the warning.</p>
+<p>Or, if you are a machine administrator, you may have options to execute the application.  To do so, you may have to click buttons that say things like &ldquo;More Options&rdquo;, &ldquo;Run Anyway&rdquo;, etc. &hellip; depending on what is issuing the warning and your rights.  For example:</p>
+<p>
+  <img src="images/image-1.png" alt="alt text" /></p>
+<p>
+  <img src="images/image-4.png" alt="alt text" /></p>
+<p>These technical methods are not offered to circumvent the guidance of your organization with respect to third party executables.  Please use the privileges granted to you by your organization responsibly.</p>
+<p>The Reporter application only runs on Windows.  However, you can use it to report on an ArcGIS Enterprise on Windows or Linux.  In the event that your Enterprise is on Linux, running Reporter as a local machine administrator does not produce any additional output information in the report documents.  The only reason to run Reporter as local machine administrator in that case is to give you more options in response to an unsigned application warning if you receive one.</p>
+<h2 id="what-is-the-right-value-for-target">
+  What Is the Right Value for &ldquo;Target&rdquo;?
+  <a class="anchor" href="#what-is-the-right-value-for-target">#</a>
+</h2>
+<p>There are three basic options:</p>
+<ol>
+<li>The FQDN (&lsquo;portalmachine.domain.com&rsquo;) of the machine</li>
+<li>The 7443 endpoint for Portal (&lsquo;
+  <a href="https://portalmachine.domain.com:7443/%27">https://portalmachine.domain.com:7443/'</a>)</li>
+<li>The WebContextUrl for Portal (&lsquo;
+  <a href="https://proxy.domain.com/portalcontext%27">https://proxy.domain.com/portalcontext'</a>)</li>
+</ol>
+<p>The first two options amount to the same thing.  If you enter the FQDN of your Portal machine (either machine in the case of a two-machine &ldquo;high-availability&rdquo; Portal), Reporter will fix-it up into option #2 for you.  In addition to being relatively straight-forwards, this is usually the best option for &ldquo;Target&rdquo; value as well.  So, it is recommended that you use the FQDN (fully-qualified domain name) of a Portal machine (the machine&rsquo;s &ldquo;A RECORD&rdquo;).</p>
+<p>Of course, this implies that your network will allow you to get to Portal&rsquo;s 7443 port from where you are running Reporter.  This is why the first tip encourages you to run Reporter on your server network because it is on that network that this network pathway will be allowed.</p>
+<p>The third option is to provide the WebContextUrl (or Web Adaptor-style address) as the target.  This generally works.  However, Reporter only knows about &ldquo;Portal tier authentication&rdquo;.  So, if this pathway (WebContextUrl) involves &ldquo;web tier authentication&rdquo; or requires SAML, OIDC, etc., Reporter will not be able to authenticate.</p>
+<p>As you might be able to infer, the values for &ldquo;Admin user&rdquo; and &ldquo;password&rdquo; must be a user that has administrative rights on your Portal and is authenticated at the Portal tier.  This certainly includes Portal&rsquo;s &ldquo;Initial Administrator Account&rdquo;.  But, you can also use any other account that is a Portal administrator and can get a token directly from Portal&rsquo;s 7443 REST endpoints.</p>
+<h2 id="common-problems-and-solutions">
+  Common Problems and Solutions
+  <a class="anchor" href="#common-problems-and-solutions">#</a>
+</h2>
+<p>The application comes with a Microsoft Word document which includes a section on Troubleshooting.  If you are having a problem, you should consult that first.</p>
+<p>The most common problems are usually having to do with access to the token REST endpoint.  Those problems are best avoided by running the application from the server network and using the machine FQDN as the target address.  The message in the application will look like this:</p>
+<p>Exception while acquiring token. Please use a browser to check the url: <code>https://&lt;f.q.d.n&gt;:7443/arcgis/sharing/rest/generateToken</code> and credentials.</p>
+<p>As you can see, it asks you to validate that the URL target to get a token is reachable from the machine on which you are running Reporter.  If you can get to that endpoint, then try generating a token.  If you can do both of those things, Reporter will run.</p>
+<h2 id="what-are-the-checkbox-options">
+  What Are the Checkbox Options?
+  <a class="anchor" href="#what-are-the-checkbox-options">#</a>
+</h2>
+<p>At a high-level, the checkboxes have the following implications:</p>
+<p><code>Admin + Services Inventory</code>: This touches all of the REST endpoints in the Admin APIs for your Portal and your federated Servers.  It records all of the configuration information of your Enterprise, lists all of its services and their properties, etc.  The information is quite broad and deep. This makes it very valuable.  But, it can be challenge to get a high-level picture.  The specific contents of this file output will be explored in future articles.</p>
+<p><code>Diagram</code>: The diagram provides a high-level picture of the logical structure of your Enterprise.  This is an example from a very simple (development environment) system:</p>
+<p>
+  <img src="images/image-5.png" alt="alt text" /></p>
+<p><code>Certificate Analysis</code>: Reporter does its best to connect to each of the HTTPS endpoints in your Enterprise (i.e. Reverse proxies, Web Adaptors, Portal&rsquo;s on 7443, Server&rsquo;s on 6443, etc.), discovering the certificates and reporting on various facts like certificate subjects, expirations, and trust chains.  There are several sheets in the Excel, each sheet corresponding to a different HTTPS access pathway.  For example:</p>
+<p>
+  <img src="images/image-6.png" alt="alt text" /></p>
+<p><code>Portal Content Inventory</code>:  This output is created by stepping through Portal&rsquo;s Sharing API.  It lists all of the content in the Portal, along with its &ldquo;metadata&rdquo; (content type, owner, etc.).  And, it can provide lists of users, groups, etc.  This output will also be explored in more detail in future articles.</p>
+<p><code>Migrator Artifacts (advanced)</code>:  This is, as the name implies, an advanced option.  Most users will never need this.  This option does two things.  The first is that it writes out the json from the REST endpoints into a subdirectory.  So, if you are someone that likes working with json, you can find it all there.  Second, when it finds sufficient information in Portal to export out &ldquo;service definitions&rdquo;, it will do so.  This can be helpful if you wish to re-publish services.  If you published your service through ArcGIS Pro, it was very likely to story the service definitions there such that Reporter can access them.</p>
+<h2 id="conclusion">
+  Conclusion
+  <a class="anchor" href="#conclusion">#</a>
+</h2>
+<p>Hopefully, this article has provided a useful orientation to how to run the GIS Enterprise Reporter tool.  As mentioned, it comes with a Microsoft Word document that provides additional information.  Should you run into challenges or have questions that are not clearly addressed, please be in touch through the contact information in that document.  You may post comments questions here also, if you wish.</p>
+<p>Prior Series Article: Introducing the GIS Enterprise Reporter</p>
+<p>Next Series Article: GIS Enterprise Reporter: Making the Most of Services Outputs</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#where-should-this-application-be-run">Where Should This Application Be Run?</a></li>
+    <li><a href="#how-should-this-application-be-run">How Should this Application Be Run?</a></li>
+    <li><a href="#what-is-the-right-value-for-target">What Is the Right Value for &ldquo;Target&rdquo;?</a></li>
+    <li><a href="#common-problems-and-solutions">Common Problems and Solutions</a></li>
+    <li><a href="#what-are-the-checkbox-options">What Are the Checkbox Options?</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

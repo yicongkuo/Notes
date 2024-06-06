@@ -1,0 +1,1 @@
+navigator.serviceWorker&&navigator.serviceWorker.register("/Notes/GIS-Enterprise-Reporter/sw.js",{scope:"/Notes/GIS-Enterprise-Reporter/"})
