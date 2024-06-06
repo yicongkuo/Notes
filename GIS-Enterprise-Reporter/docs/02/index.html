@@ -17,6 +17,7 @@ There are some things that benefit from explanation. This article will offer inf
   <meta property="og:locale" content="zh_tw">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
+    <meta property="article:modified_time" content="2024-06-06T17:18:27+08:00">
 <title>Running GIS Enterprise Reporter, Tips &amp; Tricks | GIS Enterprise Reporter</title>
 <link rel="manifest" href="/Notes/GIS-Enterprise-Reporter/manifest.json">
 <link rel="icon" href="/Notes/GIS-Enterprise-Reporter/favicon.png" >
@@ -190,7 +191,7 @@ https://github.com/alex-shpak/hugo-book
 <p>The GIS Enterprise Reporter user interface is intended to have few options in the hopes that it is relatively straight-forward to execute.</p>
 <p>In principle, you give it a Portal for ArcGIS &ldquo;Target&rdquo;, with an administrative credential for that Portal, tick some checkboxes, click &ldquo;Execute&rdquo;, and wait for it to complete.</p>
 <p>
-  <img src="images/image.png" alt="alt text" /></p>
+  <img src="./images/image.png" alt="alt text" /></p>
 <p>There are some things that benefit from explanation.  This article will offer information on the following topics:</p>
 <ol>
 <li>Where should I run this application?</li>
@@ -213,17 +214,17 @@ https://github.com/alex-shpak/hugo-book
 <p>It is not necessary to run Reporter as a local machine administrator.  However, doing so will usually allow it to gather more information for you.  And, it may help you to overcome some potential execution challenges.</p>
 <p>If you wish to run the application as a local machine administrator (assuming you are a member of that local machine Administrators group), right click on the enterprise_reporter.exe executable and select &ldquo;Run as administrator&rdquo; from the context menu.</p>
 <p>
-  <img src="images/image-3.png" alt="alt text" /></p>
+  <img src="./images/image-3.png" alt="alt text" /></p>
 <p>You may or may not receive a message from your operating system or security software that discourages you from running this application.</p>
 <p>This application is digitally signed by Esri with a chain of authority from a public Certificate Authority.  So, it is unlikely that the message will mention certificate trust.  But, if it does, you may wish to explore importing the trust chain into your trusted repository.  To initiate the &ldquo;installation&rdquo; workflow for the certificate, follow the steps show in the screen capture below :</p>
 <p>
-  <img src="images/image-2.png" alt="alt text" /></p>
+  <img src="./images/image-2.png" alt="alt text" /></p>
 <p>Selecting &ldquo;Current User&rdquo; and &ldquo;Automatically select the certificate store based on the type of certificate&rdquo; are the appropriate options on the &ldquo;Install Certificate&rdquo; wizard panels.  This may relieve you of the warning.</p>
 <p>Or, if you are a machine administrator, you may have options to execute the application.  To do so, you may have to click buttons that say things like &ldquo;More Options&rdquo;, &ldquo;Run Anyway&rdquo;, etc. &hellip; depending on what is issuing the warning and your rights.  For example:</p>
 <p>
-  <img src="images/image-1.png" alt="alt text" /></p>
+  <img src="./images/image-1.png" alt="alt text" /></p>
 <p>
-  <img src="images/image-4.png" alt="alt text" /></p>
+  <img src="./images/image-4.png" alt="alt text" /></p>
 <p>These technical methods are not offered to circumvent the guidance of your organization with respect to third party executables.  Please use the privileges granted to you by your organization responsibly.</p>
 <p>The Reporter application only runs on Windows.  However, you can use it to report on an ArcGIS Enterprise on Windows or Linux.  In the event that your Enterprise is on Linux, running Reporter as a local machine administrator does not produce any additional output information in the report documents.  The only reason to run Reporter as local machine administrator in that case is to give you more options in response to an unsigned application warning if you receive one.</p>
 <h2 id="what-is-the-right-value-for-target">
@@ -258,10 +259,10 @@ https://github.com/alex-shpak/hugo-book
 <p><code>Admin + Services Inventory</code>: This touches all of the REST endpoints in the Admin APIs for your Portal and your federated Servers.  It records all of the configuration information of your Enterprise, lists all of its services and their properties, etc.  The information is quite broad and deep. This makes it very valuable.  But, it can be challenge to get a high-level picture.  The specific contents of this file output will be explored in future articles.</p>
 <p><code>Diagram</code>: The diagram provides a high-level picture of the logical structure of your Enterprise.  This is an example from a very simple (development environment) system:</p>
 <p>
-  <img src="images/image-5.png" alt="alt text" /></p>
+  <img src="./images/image-5.png" alt="alt text" /></p>
 <p><code>Certificate Analysis</code>: Reporter does its best to connect to each of the HTTPS endpoints in your Enterprise (i.e. Reverse proxies, Web Adaptors, Portal&rsquo;s on 7443, Server&rsquo;s on 6443, etc.), discovering the certificates and reporting on various facts like certificate subjects, expirations, and trust chains.  There are several sheets in the Excel, each sheet corresponding to a different HTTPS access pathway.  For example:</p>
 <p>
-  <img src="images/image-6.png" alt="alt text" /></p>
+  <img src="./images/image-6.png" alt="alt text" /></p>
 <p><code>Portal Content Inventory</code>:  This output is created by stepping through Portal&rsquo;s Sharing API.  It lists all of the content in the Portal, along with its &ldquo;metadata&rdquo; (content type, owner, etc.).  And, it can provide lists of users, groups, etc.  This output will also be explored in more detail in future articles.</p>
 <p><code>Migrator Artifacts (advanced)</code>:  This is, as the name implies, an advanced option.  Most users will never need this.  This option does two things.  The first is that it writes out the json from the REST endpoints into a subdirectory.  So, if you are someone that likes working with json, you can find it all there.  Second, when it finds sufficient information in Portal to export out &ldquo;service definitions&rdquo;, it will do so.  This can be helpful if you wish to re-publish services.  If you published your service through ArcGIS Pro, it was very likely to story the service definitions there such that Reporter can access them.</p>
 <h2 id="conclusion">
