@@ -2,19 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://yicongkuo.github.io/Notes/GIS-Enterprise-Reporter/docs/01/</loc>
-    <lastmod>2024-06-06T17:18:27+08:00</lastmod>
-  </url><url>
     <loc>https://yicongkuo.github.io/Notes/GIS-Enterprise-Reporter/docs/02/</loc>
-    <lastmod>2024-06-06T17:18:27+08:00</lastmod>
   </url><url>
     <loc>https://yicongkuo.github.io/Notes/GIS-Enterprise-Reporter/docs/03/</loc>
-    <lastmod>2024-06-06T17:18:27+08:00</lastmod>
+  </url><url>
+    <loc>https://yicongkuo.github.io/Notes/GIS-Enterprise-Reporter/categories/</loc>
   </url><url>
     <loc>https://yicongkuo.github.io/Notes/GIS-Enterprise-Reporter/docs/</loc>
-    <lastmod>2024-06-06T17:18:27+08:00</lastmod>
   </url><url>
     <loc>https://yicongkuo.github.io/Notes/GIS-Enterprise-Reporter/</loc>
-    <lastmod>2024-06-06T17:18:27+08:00</lastmod>
+  </url><url>
+    <loc>https://yicongkuo.github.io/Notes/GIS-Enterprise-Reporter/tags/</loc>
   </url>
 </urlset>

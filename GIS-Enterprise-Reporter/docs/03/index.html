@@ -11,21 +11,20 @@
   <meta property="og:title" content="Making the Most of Services Outputs">
   <meta property="og:description" content="Making the Most of Services Outputs#Introduction#GIS Enterprise Reporter provides a lot of information about the content and configuration of an ArcGIS Enterprise. Among the outputs available is an “admin” Excel workbook. That workbook’s sheets contain information available from the Admin API’s of each server role in the ArcGIS Enterprise (Portal and all of the federated ArcGIS Server Sites). For each federated ArcGIS Server Site, there are several sheets that describe aspects of the services inventory.">
   <meta property="og:locale" content="zh_tw">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="docs">
-    <meta property="article:modified_time" content="2024-06-06T17:18:27+08:00">
+  <meta property="og:type" content="website">
 <title>Making the Most of Services Outputs | GIS Enterprise Reporter</title>
 <link rel="manifest" href="/Notes/GIS-Enterprise-Reporter/manifest.json">
 <link rel="icon" href="/Notes/GIS-Enterprise-Reporter/favicon.png" >
 <link rel="canonical" href="https://yicongkuo.github.io/Notes/GIS-Enterprise-Reporter/docs/03/">
 <link rel="stylesheet" href="/Notes/GIS-Enterprise-Reporter/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css" integrity="sha256-MJt&#43;0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin="anonymous">
   <script defer src="/Notes/GIS-Enterprise-Reporter/fuse.min.js"></script>
-  <script defer src="/Notes/GIS-Enterprise-Reporter/en.search.min.bbeae7cd442d5e031c36cd55017eda66a0d66202eaea923e4c1717dc65200e86.js" integrity="sha256-u&#43;rnzUQtXgMcNs1VAX7aZqDWYgLq6pI&#43;TBcX3GUgDoY=" crossorigin="anonymous"></script>
+  <script defer src="/Notes/GIS-Enterprise-Reporter/en.search.min.2d1a0a2f0ae058ccad6274b07b1791863bf4dd99e2c6e08fb9f91aef8a276580.js" integrity="sha256-LRoKLwrgWMytYnSwexeRhjv03ZnixuCPufka74onZYA=" crossorigin="anonymous"></script>
 
   <script defer src="/Notes/GIS-Enterprise-Reporter/sw.min.5bf32e07a1d773bf9b278a7cda0dee5d889b495f99897da88b5d954d3a75ab19.js" integrity="sha256-W/MuB6HXc7&#43;bJ4p82g3uXYibSV&#43;ZiX2oi12VTTp1qxk=" crossorigin="anonymous"></script>
 
   
 
+<link rel="alternate" type="application/rss+xml" href="https://yicongkuo.github.io/Notes/GIS-Enterprise-Reporter/docs/03/index.xml" title="GIS Enterprise Reporter" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -78,21 +77,13 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/Notes/GIS-Enterprise-Reporter/docs/01/" class="">Introducing the GIS Enterprise Reporter</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/Notes/GIS-Enterprise-Reporter/docs/02/" class="">Running GIS Enterprise Reporter, Tips &amp; Tricks</a>
   
+
+          
+  <ul>
+    
+  </ul>
 
         </li>
       
@@ -106,6 +97,11 @@ https://github.com/alex-shpak/hugo-book
   
     <a href="/Notes/GIS-Enterprise-Reporter/docs/03/" class="active">Making the Most of Services Outputs</a>
   
+
+          
+  <ul>
+    
+  </ul>
 
         </li>
       
@@ -201,10 +197,10 @@ https://github.com/alex-shpak/hugo-book
 </h2>
 <p>The default execution parameters of GIS Enterprise Reporter will generate the &ldquo;Admin&rdquo; Excel output.  The &ldquo;Admin + Services Inventory&rdquo; checkbox creates and populates the workbook from the Admin API.  The &ldquo;With Analytics&rdquo; checkbox will calculate a variety of aggregate statistics and other information of interest from the raw outputs, placing them in additional sheets in the same Excel workbook.</p>
 <p>
-  <img src="./images/image-8.png" alt="alt text" /></p>
+  <img src="./image-8.png" alt="alt text" /></p>
 <p>The workbook will be placed in the output directory and will bear a name indicating the name of the ArcGIS Enterprise followed by &ldquo;<em>admin</em>&rdquo; and a timestamp as shown here:</p>
 <p>
-  <img src="./images/image-9.png" alt="alt text" /></p>
+  <img src="./image-9.png" alt="alt text" /></p>
 <h2 id="understanding-the-services-content">
   Understanding the Services Content
   <a class="anchor" href="#understanding-the-services-content">#</a>
@@ -216,7 +212,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p>An example of the main sheets for a federated Site appears below:</p>
 <p>
-  <img src="./images/image-10.png" alt="alt text" /></p>
+  <img src="./image-10.png" alt="alt text" /></p>
 <p>Each federated Site is given a number by GIS Enterprise Reporter.  In this example, we are looking at site number &ldquo;1&rdquo;.  And, the site name is dannyk_esri_com (the DNS name by which the Site is known).</p>
 <p>The suffixes have the following meanings:</p>
 <pre><code>* `serveradm`: Information extracted from the Admin API about how the Site is configured.
@@ -230,31 +226,31 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p>The &ldquo;normalized&rdquo; services listing is a good place to start.  Each line is a service and some essential pieces of information about it.</p>
 <p>
-  <img src="./images/image-11.png" alt="alt text" /></p>
+  <img src="./image-11.png" alt="alt text" /></p>
 <p>The first row has filters that can be used to focus on information of particular interest.</p>
 <p>
-  <img src="./images/image-12.png" alt="alt text" /></p>
+  <img src="./image-12.png" alt="alt text" /></p>
 <h3 id="the-detail-in-serversvc">
   The Detail in &ldquo;serversvc&rdquo;
   <a class="anchor" href="#the-detail-in-serversvc">#</a>
 </h3>
 <p>The &ldquo;serversvc&rdquo; sheet has one line per service property.  This makes it less convenient for understanding the big picture.  But, if you want to know the recycleStartTime, the portalProperties, or the referenced datasets, they are available here.</p>
 <p>
-  <img src="./images/image-13.png" alt="alt text" /></p>
+  <img src="./image-13.png" alt="alt text" /></p>
 <h3 id="exploring-the-analytics">
   Exploring the Analytics
   <a class="anchor" href="#exploring-the-analytics">#</a>
 </h3>
 <p>If you selected &ldquo;With Analytics&rdquo; there will be two additional sheets for each federated ArcGIS Server Site.  Their names include only the site number assigned by GIS Enterprise Reporter and a suffix indicating their content.</p>
 <p>
-  <img src="./images/image-14.png" alt="alt text" /></p>
+  <img src="./image-14.png" alt="alt text" /></p>
 <h4 id="svc_datasets">
   svc_datasets
   <a class="anchor" href="#svc_datasets">#</a>
 </h4>
 <p>The svc_datasets sheet is a listing of all of the datasets referenced by the dedicated instance services in the Site (Hosted Services and Shared Instance services do not include this information in the ArcGIS Server Admin API).  As with the other sheets, it is filterable if you wish to focus on particular services or datasets.</p>
 <p>
-  <img src="./images/image-15.png" alt="alt text" /></p>
+  <img src="./image-15.png" alt="alt text" /></p>
 <p>The dataset information is formatted as it is in ArcGIS Server: datasetname followed by the workspace from where it comes.</p>
 <h4 id="svc_analytics">
   svc_analytics
@@ -262,7 +258,7 @@ https://github.com/alex-shpak/hugo-book
 </h4>
 <p>&ldquo;svc_analytics&rdquo; contains a variety of calculated statistics about the services (and the service instances) in the Site.</p>
 <p>
-  <img src="./images/image-16.png" alt="alt text" /></p>
+  <img src="./image-16.png" alt="alt text" /></p>
 <p>The first few statistics are about the services over-all.  However, most of the statistics are focused on only those services that are running.</p>
 <p>The &ldquo;Total Minimum Instances Per Node (started)&rdquo; is of interest because this is the number of instances that exist as soon as ArcGIS Server starts.  The &ldquo;maximum&rdquo; statistic is the upper limit.  However, it is almost never the case that all services have their maximum instantiation at the same time.</p>
 <p>Statistics are presented by &ldquo;provider&rdquo; (indicating something about how the service was published and how it runs) and &ldquo;type&rdquo; (indicating something about what it can do).  As noted, these statistics focus on the services that are running, and their min/max instancing.</p>
